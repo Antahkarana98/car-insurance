@@ -30,3 +30,27 @@ const ui = new UI();
 document.addEventListener("DOMContentLoaded", () => {
     ui.llenarYears(); 
 })
+
+
+eventListeners();
+
+function eventListeners(){
+    const formulario = document.querySelector('#cotizar-seguro');
+    formulario.addEventListener("submit", cotizarSeguro);
+}
+
+function cotizarSeguro(e){
+    e.preventDefault();
+
+    // leer datos
+
+    const marca = document.querySelector('#marca').value;
+    const year = document.querySelector('#year').value;
+    const tipo = document.querySelector('input[name="tipo"]:checked').value;
+    
+    if (marca === '' || year === '' || tipo === ''){
+        console.log('falta info');
+    }else {
+        console.log('cotizando..');
+    }
+}
